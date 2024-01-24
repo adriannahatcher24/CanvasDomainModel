@@ -1,6 +1,7 @@
-namespace Assignment;
+using System;
 
-public class Assignment{
+public class Assignment
+{
     public int AssignmentID { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
@@ -16,11 +17,11 @@ public class Assignment{
 
     public void Submit()
     {
-        
+        Console.WriteLine($"{Title} has been submitted.");
     }
 
     public void Grade()
     {
-        
+        Console.WriteLine($"{Title} has been graded.");
     }
 }
