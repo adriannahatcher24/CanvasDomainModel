@@ -13,11 +13,7 @@ public abstract class User
         Email = email;
     }
 
-    public abstract void Login(
-        console.WriteLine($"{Name} logged in");
-    );
-    public abstract void Logout(
-        console.WriteLine($"{Name} logged out");
-    );
+    public abstract void Login();
+    public abstract void Logout();
 }
 
