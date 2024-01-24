@@ -15,21 +15,20 @@ public class Student : User
     public void EnrollCourse(Course course)
     {
         Courses.Add(course);
-        Courses.WriteLine($"{Name} enrolled im {course.Title}.")
     }
 
     public void SubmitAssignment(Assignment assignment)
     {
-        Courses.WriteLine($"{Name} enrolled im {course.Title}.")
+        assignment.Submit();
     }
 
     public override void Login()
     {
-        // Implementation
+        Console.WriteLine($"{Name} logged in as Student.");
     }
 
     public override void Logout()
     {
-        // Implementation
+        Console.WriteLine($"{Name} logged out.");
     }
 }
