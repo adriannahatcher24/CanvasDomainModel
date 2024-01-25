@@ -7,6 +7,8 @@ public class Course
     public string Description { get; set; }
     public List<Student> EnrollmentList { get; set; }
     public Instructor CourseInstructor { get; set; }
+    public List<Assignment> Assignments { get; set; }
+
 
     public Course(int courseId, string title, string description, Instructor instructor)
     {
@@ -15,22 +17,38 @@ public class Course
         Description = description;
         CourseInstructor = instructor;
         EnrollmentList = new List<Student>();
+        Assignments = new List<Assignment>();
+
     }
 
     public void AddStudent(Student student)
     {
-        EnrollmentList.Add(student)
-        Console.WriteLine($"{Student} is added to {Title}.");
+        EnrollmentList.Add(student);
     }
 
     public void RemoveStudent(Student student)
     {
-        EnrollmentList.Remove(student)
-        Console.WriteLine($"{Student} is removed from {Title}.");
+        EnrollmentList.Remove(student);
     }
 
-    public void PublishAssignment(Assignment assignment)
+   public void PublishAssignment(Assignment assignment)
     {
-        Console.WriteLine($"Assignment {assignment.Title} published in {Title}.");
+        assignment.Publish();
+        Assignments.Add(assignment);
+        NotifyStudentsAboutAssignment(assignment); 
+        LogAssignmentPublication(assignment);
     }
+
+    private void NotifyStudentsAboutAssignment(Assignment assignment)
+    {
+        foreach (var student in EnrollmentList)
+        {
+            Console.WriteLine($"Notification sent to {student.Name}: New assignment published - {assignment.Title}");
+        }
+    }
+
+    private void LogAssignmentPublication(Assignment assignment)
+{
+    Console.WriteLine($"Assignment {assignment.Title} published on {DateTime.Now}");
+}
 }

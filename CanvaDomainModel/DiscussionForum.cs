@@ -15,11 +15,19 @@ public class DiscussionForum
 
     public void CreatePost(Post post)
     {
-        // Implementation
+        Posts.Add(post);
     }
 
-    public void DeletePost(Post post)
+    public void DeletePost(Post post){
+
+    if (Posts.Contains(post))
     {
-        // Implementation
+        Posts.Remove(post);
+        Console.WriteLine("Post removed successfully.");
     }
+    else
+    {
+        Console.WriteLine("The post does not exist in the forum.");
+    }
+}
 }

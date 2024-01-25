@@ -1,4 +1,8 @@
 namespace Instructor;
+using System;
+using Course;
+using Assignment;
+using User;
 
 public class Instructor : User
 {
@@ -15,21 +19,20 @@ public class Instructor : User
     public void CreateCourse(Course course)
     {
         Courses.Add(course);
-        Courses.WriteLine($"{Name} created {course.Title}.")
     }
 
     public void GradeAssignment(Assignment assignment)
     {
-        Courses.WriteLine($"{Name} graded {assignment.Title}.")
+        assignment.Grade();
     }
 
     public override void Login()
     {
-        // Implementation
+        Console.WriteLine($"{Name} logged in as Instructor.");
     }
 
     public override void Logout()
     {
-        // Implementation
+        Console.WriteLine($"{Name} logged out.");
     }
 }

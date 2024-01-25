@@ -1,4 +1,5 @@
 using System;
+namespace Assignment;
 
 public class Assignment
 {
@@ -6,6 +7,7 @@ public class Assignment
     public string Title { get; set; }
     public string Description { get; set; }
     public DateTime DueDate { get; set; }
+    public bool IsPublished { get; private set; }
 
     public Assignment(int assignmentId, string title, string description, DateTime dueDate)
     {
@@ -13,6 +15,17 @@ public class Assignment
         Title = title;
         Description = description;
         DueDate = dueDate;
+    }
+
+    public void Publish()
+    {
+        IsPublished = true;
+        LogAssignmentPublication(); 
+    }
+
+    private void LogAssignmentPublication()
+    {
+        Console.WriteLine($"Assignment {Title} published on {DateTime.Now}");
     }
 
     public void Submit()
@@ -25,3 +38,4 @@ public class Assignment
         Console.WriteLine($"{Title} has been graded.");
     }
 }
+

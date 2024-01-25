@@ -1,4 +1,6 @@
 namespace Post;
+using User;
+using System;
 
 public class Post
 {
@@ -6,6 +8,7 @@ public class Post
     public User Author { get; set; }
     public string Content { get; set; }
     public DateTime Timestamp { get; set; }
+    public bool IsDeleted { get; private set; }
 
     public Post(int postId, User author, string content, DateTime timestamp)
     {
@@ -13,15 +16,16 @@ public class Post
         Author = author;
         Content = content;
         Timestamp = timestamp;
+        IsDeleted = false;
     }
 
     public void Edit(string newContent)
     {
-        // Implementation
+        Content.newContent;
     }
 
     public void Delete()
     {
-        // Implementation
+        IsDeleted = true;
     }
 }

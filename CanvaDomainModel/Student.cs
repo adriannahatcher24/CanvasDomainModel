@@ -1,4 +1,8 @@
 namespace Student;
+using System;
+using Course;
+using Assignment;
+using User;
 
 public class Student : User
 {
